@@ -1,0 +1,25 @@
+QUESTION:
+
+Create a diagram depicting the situation where the user goes
+to the single page app version of the notes app at
+https://studies.cs.helsinki.fi/exampleapp/spa.
+
+
+SOLUTION:
+
+note on browser:
+browser sends data to the server
+end note
+
+browser-> server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+server->browser: HTML code 
+
+note on server:
+server responds with only one HTML page
+the contents in the HTML are manipulated with
+Javascript executed by the browser
+end note
+
+note on browser:
+browser displays the page with its contents
+end note
