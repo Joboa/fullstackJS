@@ -1,0 +1,39 @@
+QUESTION:
+
+Create a diagram depicting the situation where the user creates
+a new note using the single page version of the app
+
+
+SOLUTION:
+
+note over browser:
+data (request: POST) is sent to server  with form submit
+end note
+
+browser->server: HTTP POST https://fullstack-example.herokuapp.com/new_note_spa
+
+note over server:
+server instructs the browser to reload the Notes page
+with a redirect
+end note
+
+note over browser: 
+the POST request now contains JSON-data which comprises
+both the content and the date
+the Content-Type header of the request tells the server that the
+included data is a JSON format
+
+server-->browser: responds with status code 201
+
+note over server:
+this time the server does not ask for a redirect
+end note
+
+note over browser:
+the browser stays on the same page and 
+it sends no further HTTP request
+it uses Javascript to manipulate the view display at 
+the background
+end note
+
+
