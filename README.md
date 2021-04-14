@@ -1,5 +1,5 @@
 ### fullstackJS
-This is a course I am current studying by The Finnish Houston Inc.
+This is a course I am currently studying by The Finnish Houston Inc.
 It is captioned Full stack open 2021. The course material is licensed under 
 Creative Commons BY-NC-SA 3.0 license.
 It consists of 12 parts with exercises under each section. 
