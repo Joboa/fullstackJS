@@ -62,35 +62,37 @@ const Total = (props) => {
 // --------Unicafe Project------------------
 // -----------------------------------------
 
-const Header = () => <h2>give feedback</h2>
+const Header = ({text}) => <h2>{text}</h2>
 
 const Button = ({ text, handleClick }) => <button onClick={handleClick}>{text}</button>
 
 // Statistics component 
-const Statistics = ({ good, neutral, bad }) => {
-  const all = good + neutral + bad
-  const average = (good * 1 + bad * -1) / all
-  const positiveFeedback = (good / all) * 100
+// const Statistics = ({ good, neutral, bad }) => {
+//   const all = good + neutral + bad
+//   const average = (good * 1 + bad * -1) / all
+//   const positiveFeedback = (good / all) * 100
 
-  if (good === 0 && neutral === 0 && bad === 0) {
-    return <div>
-      <h2>statistics</h2>
-      <p>No feedback given</p>
-    </div>
-  } else {
-    return (
-      <div>
-        <h2>statistics</h2>
-        <p>good {good}</p>
-        <p>neutral {neutral}</p>
-        <p>bad {bad}</p>
-        <p>all {all}</p>
-        <p>average {average}</p>
-        <p>positive {positiveFeedback} %</p>
-      </div>
-    )
-  }
-}
+//   if (good === 0 && neutral === 0 && bad === 0) {
+//     return <div>
+//       <h2>statistics</h2>
+//       <p>No feedback given</p>
+//     </div>
+//   } else {
+//     return (
+//       <div>
+//         <h2>statistics</h2>
+//         <p>good {good}</p>
+//         <p>neutral {neutral}</p>
+//         <p>bad {bad}</p>
+//         <p>all {all}</p>
+//         <p>average {average}</p>
+//         <p>positive {positiveFeedback} %</p>
+//       </div>
+//     )
+//   }
+// }
+
+const Statistics = ({ text, value }) => <p>{text} {value} </ p>
 
 const App = () => {
 
@@ -104,14 +106,25 @@ const App = () => {
 
   const handleBad = () => setBad(bad + 1)
 
+  const all = good + neutral + bad
+  const average = (good * 1 + bad * -1) / all
+  const positiveFeedback = (good / all) * 100
 
   return (
+
     <div>
-      <Header />
+      <Header text='give feedback' />
       <Button handleClick={handleGood} text='good' />
       <Button handleClick={handleNeutral} text='neutral' />
       <Button handleClick={handleBad} text='bad' />
-      <Statistics good={good} neutral={neutral} bad={bad} />
+      <Header text='statistics' />
+      <Statistics text='good' value={good} />
+      <Statistics text='neutral' value={neutral} />
+      <Statistics text='bad' value={bad} />
+      <Statistics text='all' value={all} />
+      <Statistics text='average' value={average} />
+      <Statistics text='positive' value={positiveFeedback} />
+      {/* <Statistics good={good} neutral={neutral} bad={bad} /> */}
       {/* <Header course={course.name} /> */}
       {/* <Content /> */}
       {/* <Total exercises1={course.parts[0].exercises} exercises2={course.parts[1].exercises} exercises3={course.parts[2].exercises} /> */}
