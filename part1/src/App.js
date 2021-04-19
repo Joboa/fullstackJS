@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 
+// -----------Introductory project---------------
+// ----------------------------------------------
 const course = {
   name: 'Half Stack application development',
   parts: [
@@ -20,7 +22,7 @@ const course = {
 
 
 
-const Header = (props) => {
+const Head = (props) => {
   console.log(props)
   return (
     <h1>{props.course}</h1>
@@ -57,12 +59,47 @@ const Total = (props) => {
   )
 }
 
-const App = () => {
+// --------Unicafe Project-------------
+// -----------------------------------------
+
+const Header = () => <h2>give feedback</h2>
+
+const Button = ({ text, handleClick }) => <button onClick={handleClick}>{text}</button>
+
+const Statistics = ({ good, neutral, bad }) => {
   return (
     <div>
-      <Header course={course.name} />
-      <Content />
-      <Total exercises1={course.parts[0].exercises} exercises2={course.parts[1].exercises} exercises3={course.parts[2].exercises} />
+      <h2>statistics</h2>
+      <p>good {good}</p>
+      <p>neutral {neutral}</p>
+      <p>bad {bad}</p>
+    </div>
+  )
+}
+
+const App = () => {
+
+  const [good, setGood] = useState(0)
+  const [neutral, setNeutral] = useState(0)
+  const [bad, setBad] = useState(0)
+
+  const handleGood = () => setGood(good + 1)
+
+  const handleNeutral = () => setNeutral(neutral + 1)
+
+  const handleBad = () => setBad(bad + 1)
+
+
+  return (
+    <div>
+      <Header />
+      <Button handleClick={handleGood} text='good' />
+      <Button handleClick={handleNeutral} text='neutral' />
+      <Button handleClick={handleBad} text='bad' />
+      <Statistics good={good} neutral={neutral} bad={bad} />
+      {/* <Header course={course.name} /> */}
+      {/* <Content /> */}
+      {/* <Total exercises1={course.parts[0].exercises} exercises2={course.parts[1].exercises} exercises3={course.parts[2].exercises} /> */}
     </div>
   )
 }
