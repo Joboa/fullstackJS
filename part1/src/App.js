@@ -66,10 +66,11 @@ const Header = () => <h2>give feedback</h2>
 
 const Button = ({ text, handleClick }) => <button onClick={handleClick}>{text}</button>
 
+// Statistics component 
 const Statistics = ({ good, neutral, bad }) => {
   const all = good + neutral + bad
-  const average = (good*1 + bad*-1)/all
-  const positiveFeedback = (good/all)*100
+  const average = (good * 1 + bad * -1) / all
+  const positiveFeedback = (good / all) * 100
 
   return (
     <div>
