@@ -59,7 +59,7 @@ const Total = (props) => {
   )
 }
 
-// --------Unicafe Project-------------
+// --------Unicafe Project------------------
 // -----------------------------------------
 
 const Header = () => <h2>give feedback</h2>
@@ -67,12 +67,19 @@ const Header = () => <h2>give feedback</h2>
 const Button = ({ text, handleClick }) => <button onClick={handleClick}>{text}</button>
 
 const Statistics = ({ good, neutral, bad }) => {
+  const all = good + neutral + bad
+  const average = (good*1 + bad*-1)/all
+  const positiveFeedback = (good/all)*100
+
   return (
     <div>
       <h2>statistics</h2>
       <p>good {good}</p>
       <p>neutral {neutral}</p>
       <p>bad {bad}</p>
+      <p>all {all}</p>
+      <p>average {average}</p>
+      <p>positive {positiveFeedback} %</p>
     </div>
   )
 }
