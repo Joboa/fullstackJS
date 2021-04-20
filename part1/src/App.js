@@ -62,7 +62,7 @@ const Total = (props) => {
 // --------Unicafe Project------------------
 // -----------------------------------------
 
-const Header = ({text}) => <h2>{text}</h2>
+const Header = ({ text }) => <h2>{text}</h2>
 
 const Button = ({ text, handleClick }) => <button onClick={handleClick}>{text}</button>
 
@@ -92,7 +92,18 @@ const Button = ({ text, handleClick }) => <button onClick={handleClick}>{text}</
 //   }
 // }
 
-const Statistics = ({ text, value }) => <p>{text} {value} </ p>
+const Statistics = ({ text, value }) => {
+  return (
+    <table>
+      <tbody>
+        <tr>
+          <td>{text}</td>
+          <td>{value}</td>
+        </tr>
+      </tbody>
+    </table>
+  )
+}
 
 const App = () => {
 
@@ -122,8 +133,8 @@ const App = () => {
       <Statistics text='neutral' value={neutral} />
       <Statistics text='bad' value={bad} />
       <Statistics text='all' value={all} />
-      <Statistics text='average' value={average} />
-      <Statistics text='positive' value={positiveFeedback} />
+      <Statistics text='average' value={isNaN(average) ? 0 : average} />
+      <Statistics text='positive' value={isNaN(positiveFeedback) ? 0 : positiveFeedback} />
       {/* <Statistics good={good} neutral={neutral} bad={bad} /> */}
       {/* <Header course={course.name} /> */}
       {/* <Content /> */}
