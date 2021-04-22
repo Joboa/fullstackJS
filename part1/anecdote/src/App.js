@@ -1,14 +1,10 @@
 import React, { useState } from 'react'
 
-// const Anecdotes = ({anecdotes}) => {anecdotes}
+const Header = ({text}) => <h2>{text}</h2>
 
-const Button = ({ text, handleClick }) => {
-  return (
-    <>
-      <button onClick={handleClick}>{text}</button>
-    </>
-  )
-}
+const Anecdotes = ({anecdote}) => <p>{anecdote}</p>
+
+const Button = ({ text, handleClick }) => <button onClick={handleClick}>{text}</button>
 
 const CountVote = ({votes}) => <div>has {votes} votes</div>
 
@@ -38,16 +34,20 @@ const App = () => {
     setVotes(copy)
   }
 
-
+// find the largest number of votes
+  const largestVote = Math.max(...votes)
+  const highestAnecdoteVote = anecdotes[votes.indexOf(largestVote)]
 
   return (
-
     <div>
-      {anecdotes[selected]}
-      {/* <Anecdotes anecdotes={anecdotes[selected]} /> */}
+      <Header text="Anecdote of the day" />
+      <Anecdotes anecdote={anecdotes[selected]} />
       <CountVote votes={votes[selected]} />
       <Button handleClick={handleChange} text="next anecdote" />
       <Button handleClick={handleAnecdoteVote} text="vote" />
+      <Header text="Anecdote with most votes" />
+      <Anecdotes anecdote={highestAnecdoteVote} />
+      <CountVote votes={largestVote} />
     </div>
   )
 }
