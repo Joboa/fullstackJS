@@ -121,30 +121,6 @@ const App = () => {
   const average = (good * 1 + bad * -1) / all
   const positiveFeedback = (good / all) * 100
 
-  const anecdotes = [
-    'If it hurts, do it more often',
-    'Adding manpower to a late software project makes it later!',
-    'The first 90 percent of the code accounts for the first 90 percent of the development time...The remaining 10 percent of the code accounts for the other 90 percent of the development time.',
-    'Any fool can write code that a computer can understand. Good programmers write code that humans can understand.',
-    'Premature optimization is the root of all evil.',
-    'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.'
-  ]
-
-  // Get the a random index of anecdotes
-  const [selected, setSelected] = useState(0)
-
-  const getIndex = Math.floor(Math.random() * (anecdotes.length))
-  // selected = (anecdotes[getIndex])
-
-  // const handleAnecdote = () => {
-  //   return (
-  //     <div>
-  //         sets
-  //     </div>
-
-  //   )
-  // }
-
   return (
 
     <div>
@@ -159,11 +135,6 @@ const App = () => {
       <Statistics text='all' value={all} />
       <Statistics text='average' value={isNaN(average) ? 0 : average} />
       <Statistics text='positive' value={isNaN(positiveFeedback) ? 0 : positiveFeedback} />
-      {/* <Button onClick={handleAnecdote} text='next anecdote' /> */}
-      {/* <Statistics good={good} neutral={neutral} bad={bad} /> */}
-      {/* <Header course={course.name} /> */}
-      {/* <Content /> */}
-      {/* <Total exercises1={course.parts[0].exercises} exercises2={course.parts[1].exercises} exercises3={course.parts[2].exercises} /> */}
     </div>
   )
 }
